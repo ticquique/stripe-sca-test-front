@@ -1,0 +1,5 @@
+<span tabindex="0" role="button" (click)="toggleDropdown()" (keydown.enter)="toggleDropdown()" class="toggler-dropdown">{{mainValue}}</span>
+
+<div class="dropdown__container" [@dropdown]="_state" (@dropdown.start)="afterAnimationStart($event)" (@dropdown.done)="afterAnimationEnds($event)">
+  <a [title]="value.label" class=dropdown__item *ngFor="let value of values" [routerLink]="[value.value]" routerLinkActive="router-link-active" >{{value.label}}</a>
+</div>

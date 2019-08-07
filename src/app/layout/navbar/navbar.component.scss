@@ -1,0 +1,20 @@
+.logo__link {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 34px;
+    color: #e9454e;
+    transition: color 0.25s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white-color);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    &__item {
+        padding: 10px;
+    }
+}

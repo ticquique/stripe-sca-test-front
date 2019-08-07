@@ -1,0 +1,26 @@
+:host {
+  position: relative;
+}
+
+.toggler-dropdown {
+  display: block;
+  cursor: pointer;
+  transition: background-color 75ms ease-out;
+  background-color: var(--white-color);
+  padding: .5rem;
+  &:hover {
+    background-color: rgba(0,0,0,.1);
+  }
+}
+
+.dropdown__container {
+  position: absolute;
+  top: 100%;
+}
+
+.dropdown__item {
+  cursor: pointer;
+  display: block;
+  background-color: var(--white-color);
+  padding: .5rem;
+}

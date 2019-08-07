@@ -1,0 +1,53 @@
+<form action="POST" [formGroup]="cardDetails" class="card_form" (submit)="createCardhandler()">
+    <fieldset class="form-fieldset">
+        <div class="form-field required">
+            <input formControlName="name" type="text" name="name" class="required" placeholder="Full name" required>
+        </div>
+        <div class="form-field required">
+            <input formControlName="email" type="email" name="email" class="required" placeholder="Email"
+                required>
+        </div>
+        <div class="form-field">
+            <input formControlName="phone" type="tel" name="phone" placeholder="Telephone">
+        </div>
+        <div formGroupName="address">
+            <div class="form-field">
+                <input list="countries" formControlName="country" name="country" type="text"
+                    placeholder="Country">
+                <datalist id="countries">
+                    <option [value]="country.name" *ngFor="let country of countries">
+                </datalist>
+            </div>
+            <div class="form-field">
+                <input formControlName="city" type="text" name="city" placeholder="City">
+            </div>
+            <div class="form-field">
+                <input formControlName="state" type="text" name="state" placeholder="State">
+            </div>
+        </div>
+        <div class="form-field" #cardElement></div>
+    </fieldset>
+    <button type="submit" [disabled]="!cardDetails.valid">Save Card</button>
+    <div class="loading_placeholder" [ngClass]="{'is-active': loading}">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="loading_placeholder" [ngClass]="{'is-active': success}">
+        <div class="success_message">
+            <svg [ngClass]="{'animated': success}" class="successAnimation" xmlns="http://www.w3.org/2000/svg"
+                width="200" height="200" viewBox="0 0 70 70">
+                <circle class="successAnimationCircle" cx="35" cy="35" r="24" stroke-width="2" stroke-linecap="round"
+                    fill="transparent" />
+                <polyline class="successAnimationCheck" stroke-width="2" points="23 34 34 43 47 27"
+                    fill="transparent" />
+            </svg>
+        </div>
+    </div>
+    <div class="loading_placeholder" [ngClass]="{'is-active': cardErrors}">
+        <div class="success_message">
+            {{cardErrors?.message}}
+        </div>
+    </div>
+</form>
